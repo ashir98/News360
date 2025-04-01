@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news360/config/colors.dart';
-import 'package:news360/config/text_scale.dart';
-import 'package:news360/main.dart';
-import 'package:news360/widget/bottom_bar.dart';
+
 import 'package:news360/widget/news_card.dart';
 import 'package:news360/widget/trending_card.dart';
 
@@ -16,6 +14,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
   var size = MediaQuery.sizeOf(context);
     return Scaffold(
+      extendBody: true,
       appBar: AppBar(
         title: RichText(
           text:  TextSpan(
@@ -26,9 +25,8 @@ class HomePage extends StatelessWidget {
               fontFamily: "Poppins",
               color: Theme.of(context).textTheme.bodyMedium!.color
             ),
-            children: [
-              TextSpan(
-                
+            children: const [
+              TextSpan(                
                 text:  "360",
                 style: TextStyle(
                   color: lightPrimaryColor
@@ -61,7 +59,7 @@ class HomePage extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: 10,
                   itemBuilder: (context, index) {
-                    return TrendingCard(
+                    return const TrendingCard(
                       author: "Syed Ashir Al",
                       imageUrl: "https://c.cricketpakistan.com.pk/images/posts/cover_1742195483FotoJet-(2).jpg",
                       time: "2 days ago",
@@ -91,7 +89,7 @@ class HomePage extends StatelessWidget {
                 itemCount: 10,
                 itemBuilder: (context, index) {
 
-                  return NewsCard();
+                  return const NewsCard();
                   
                 },
               )
@@ -103,9 +101,6 @@ class HomePage extends StatelessWidget {
 
 
 
-      bottomNavigationBar: BottomBar(),
-    
-    
     );
   }
 }
